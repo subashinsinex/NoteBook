@@ -25,3 +25,7 @@ npm i concurrently
 npm run dev
 
 npm i mongoose
+
+npm i bcryptjs express-async-handler jsonwebtoken
+
+npm install react-router-dom@^6.0.0
