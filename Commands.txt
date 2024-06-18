@@ -1,0 +1,19 @@
+npm init
+npm i express
+npm start
+npm i nodemon
+npm i dotenv
+
+npx create-react-app frontend
+
+npm install react-scripts --save
+
+git init
+git add .
+git commit -m "Initilized"
+git remote add origin https://github.com/subashinsinex/NoteBook.git
+git push origin master
+
+npm i react-bootstrap
+
+git commit -m "Completed Header,Footer and Landing Page"
