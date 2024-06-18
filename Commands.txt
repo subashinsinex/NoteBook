@@ -19,3 +19,9 @@ npm i react-bootstrap
 git commit -m "Completed Header,Footer and Landing Page"
 
 npm i react-router-dom 
+npm i axios
+npm i concurrently
+
+npm run dev
+
+npm i mongoose

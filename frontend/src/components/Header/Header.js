@@ -4,14 +4,14 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 const Header = () => (
-  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="light">
-    <div class="container-fluid">
+  <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="light">
+    <div className="container-fluid">
       <Navbar.Brand>
         <Link to="/">NoteBook</Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav class="m-auto"></Nav>
+        <Nav className="m-auto"></Nav>
         <Nav>
           <Nav.Link>
             <Link to="/mynotes">My Notes</Link>

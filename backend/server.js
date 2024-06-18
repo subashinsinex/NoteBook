@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const notes = require("./data/notes");
 const dotenv = require("dotenv");
+const { connect } = require("mongoose");
 dotenv.config();
 const PORT = process.env.PORT;
+const connectDB = require("./config/db");
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("Api is running..");
