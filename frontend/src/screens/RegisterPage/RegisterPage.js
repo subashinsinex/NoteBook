@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MainScreen from "../../components/MainScreen";
 import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./RegisterPage.css";
-import axios from "axios";
 import Loading from "../../components/Loading";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../actions/userActions";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState(false);
   const [message, setMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userRegister = useSelector((state) => state.userRegister);
+  const { loading, error, userInfo } = userRegister;
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/mynotes");
+    }
+  }, [navigate, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -22,29 +30,7 @@ const RegisterPage = () => {
       setMessage("Password do not match!");
     } else {
       setMessage(null);
-      try {
-        const config = {
-          headers: {
-            "Content-type": "application/json",
-          },
-        };
-        setLoading(true);
-        const { data } = await axios.post(
-          "/api/users",
-          { name, email, password },
-          config
-        );
-        localStorage.setItem("userInfo", JSON.stringify(data));
-        setLoading(false);
-        navigate("/mynotes");
-      } catch (error) {
-        setError(
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message
-        );
-        setLoading(false);
-      }
+      dispatch(register(name, email, password));
     }
   };
 
