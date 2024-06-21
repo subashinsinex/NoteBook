@@ -9,8 +9,7 @@ const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
 dotenv.config();
 
-// Load environment variables and setup MongoDB connection
-const PORT = process.env.PORT || 5000; // Fallback to port 5000 if not specified
+const PORT = process.env.PORT || 5000;
 const connectDB = require("./config/db");
 connectDB();
 

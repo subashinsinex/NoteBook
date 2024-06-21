@@ -39,3 +39,5 @@ npm install redux-devtools-extension --legacy-peer-deps
 npm install redux@4.1.2 react-redux@8.1.1 redux-devtools-extension@2.13.9 redux-thunk@2.3.0
 
 npm install webpack webpack-cli babel-loader @babel/core @babel/preset-env @babel/preset-react --save-dev
+
+npm i react-markdown

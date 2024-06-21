@@ -24,6 +24,15 @@ const RegisterPage = () => {
     }
   }, [navigate, userInfo]);
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    setName(capitalizeFirstLetter(value));
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -46,7 +55,7 @@ const RegisterPage = () => {
               type="name"
               value={name}
               placeholder="Enter name"
-              onChange={(e) => setName(e.target.value)}
+              onChange={handleNameChange}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
